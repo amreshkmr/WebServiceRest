@@ -16,7 +16,7 @@ public class UserDaoService {
 	private static List<User> users = new ArrayList<>();
 
 	/** The usercount. */
-	private static int usercount = 3;
+	private static int userCount = 3;
 
 	static {
 
@@ -42,7 +42,7 @@ public class UserDaoService {
 	 */
 	public User save(User user) {
 		if (user.getId() == null) {
-			user.setId(++usercount);
+			user.setId(++userCount);
 		}
 		users.add(user);
 		return user;
