@@ -26,7 +26,9 @@ public class UserResource {
 	@GetMapping("/users/{id}")
 	public User findById(@PathVariable int id){
 		
-		return service.findOne(id);
+		return service.findOne(id);    
+		
+		//swati
 	}
 
 }
