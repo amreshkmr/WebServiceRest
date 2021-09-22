@@ -6,11 +6,16 @@ import java.util.List;
 
 import org.springframework.stereotype.Component;
 
+/**
+ * The Class UserDaoService.
+ */
 @Component
 public class UserDaoService {
 
+	/** The users. */
 	private static List<User> users = new ArrayList<>();
 
+	/** The usercount. */
 	private static int usercount = 3;
 
 	static {
@@ -21,10 +26,21 @@ public class UserDaoService {
 
 	}
 
+	/**
+	 * Find all.
+	 *
+	 * @return the list
+	 */
 	public List<User> findAll() {
 		return users;
 	}
 
+	/**
+	 * Save.
+	 *
+	 * @param user the user
+	 * @return the user
+	 */
 	public User save(User user) {
 		if (user.getId() == null) {
 			user.setId(++usercount);
@@ -34,6 +50,12 @@ public class UserDaoService {
 
 	}
 	
+	/**
+	 * Find one.
+	 *
+	 * @param id the id
+	 * @return the user
+	 */
 	public User findOne(int id) {
 		
 		for(User user:users) {
