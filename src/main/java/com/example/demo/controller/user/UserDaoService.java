@@ -23,7 +23,6 @@ public class UserDaoService {
 		users.add(new User(1, "Amresh", new Date()));
 		users.add(new User(2, "Amru", new Date()));
 		users.add(new User(3, "kumar", new Date()));
-
 	}
 
 	/**
