@@ -14,7 +14,7 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import com.example.demo.controller.user.User;
 import com.example.demo.controller.user.UserDaoService;
-import com.example.demo.controller.user.UserNotFoundException;
+import com.example.demo.controller.user.exception.UserNotFoundException;
 
 /**
  * The Class UserResource.
