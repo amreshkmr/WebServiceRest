@@ -14,6 +14,7 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import com.example.demo.controller.user.User;
 import com.example.demo.controller.user.UserDaoService;
+import com.example.demo.controller.user.UserNotFoundException;
 
 /**
  * The Class UserResource.
@@ -45,7 +46,13 @@ public class UserResource {
 	 */
 	@GetMapping("/users/{id}")
 	public User findById(@PathVariable int id){
-		return service.findOne(id);    
+		User user= service.findOne(id);  
+		
+		if(user==null) {
+			throw new UserNotFoundException("id - " +id);
+		}
+		
+		return user;
 	}
 	
 	/**
