@@ -1,13 +1,21 @@
 package com.example.demo.controller;
 
+import java.util.Locale;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.MessageSource;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestHeader;
 
 /**
  * The Class RestController.
  */
 @org.springframework.web.bind.annotation.RestController
 public class RestController {
+	
+	@Autowired
+	private MessageSource messageSource;
 
 	/**
 	 * Hello world.
@@ -40,6 +48,12 @@ public class RestController {
 	@GetMapping(path = "/hello-world-pathVariable/{name}")
 	public HelloWorldBean HelloWorldPathVariable(@PathVariable String name) {
 		return new HelloWorldBean("Hello World :  " + name);
+
+	}
+	
+	@GetMapping(path = "/hello-world-internationalized")
+	public String HelloWorldInternationalizede(@RequestHeader(name="Accept-Language" ,required = false) Locale locale) {
+		return messageSource.getMessage("good.morning.message",null, locale);
 
 	}
 }
