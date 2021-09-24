@@ -6,22 +6,22 @@ import java.util.Date;
  * The Class ExceptionResponse.
  */
 public class ExceptionResponse {
-	
+
 	/** The timestamp. */
 	private Date timestamp;
-	
+
 	/** The message. */
 	private String message;
-	
+
 	/** The details. */
 	private String details;
-	
+
 	/**
 	 * Instantiates a new exception response.
 	 *
 	 * @param timestamp the timestamp
-	 * @param message the message
-	 * @param details the details
+	 * @param message   the message
+	 * @param details   the details
 	 */
 	public ExceptionResponse(Date timestamp, String message, String details) {
 		super();
@@ -83,7 +83,5 @@ public class ExceptionResponse {
 	public void setDetails(String details) {
 		this.details = details;
 	}
-	
-	
 
 }
