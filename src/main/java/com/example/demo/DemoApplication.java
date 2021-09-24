@@ -7,6 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.support.ResourceBundleMessageSource;
 import org.springframework.web.servlet.LocaleResolver;
+import org.springframework.web.servlet.i18n.AcceptHeaderLocaleResolver;
 import org.springframework.web.servlet.i18n.SessionLocaleResolver;
 
 /**
@@ -28,21 +29,23 @@ public class DemoApplication {
 	@Bean
 	public LocaleResolver localResolver() {
 		
-		SessionLocaleResolver localeResolver= new SessionLocaleResolver();
+		//SessionLocaleResolver localeResolver= new SessionLocaleResolver();
+		AcceptHeaderLocaleResolver localeResolver= new AcceptHeaderLocaleResolver();
 		localeResolver.setDefaultLocale(Locale.US);
 		
 		return localeResolver;
 	}
 	
-	@Bean
-	public ResourceBundleMessageSource bundleMessageSource() {
-		
-		ResourceBundleMessageSource messageSource= new ResourceBundleMessageSource();
-		messageSource.setBasename("messages");
-		
-		return messageSource;
-		
-		
-		
-	}
+	/*//once you define spring.messages.basename=messages in application.properties file we can delete the below method
+	 * @Bean public ResourceBundleMessageSource bundleMessageSource() {
+	 * 
+	 * ResourceBundleMessageSource messageSource= new ResourceBundleMessageSource();
+	 * messageSource.setBasename("messages");
+	 * 
+	 * return messageSource;
+	 * 
+	 * 
+	 * 
+	 * }
+	 */
 }
