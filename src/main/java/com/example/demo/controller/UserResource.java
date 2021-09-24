@@ -4,6 +4,9 @@ import java.net.URI;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.hateoas.EntityModel;
+import org.springframework.hateoas.Link;
+import org.springframework.hateoas.server.mvc.WebMvcLinkBuilder;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -46,14 +49,18 @@ public class UserResource {
 	 * @return the user
 	 */
 	@GetMapping("/users/{id}")
-	public User findById(@PathVariable int id){
+	public EntityModel<User> findById(@PathVariable int id){
 		User user= service.findOne(id);  
 		
 		if(user==null) {
 			throw new UserNotFoundException("id - " +id);
 		}
 		
-		return user;
+		  EntityModel<User> resource = EntityModel.of(user);
+		  Link link = WebMvcLinkBuilder.linkTo(WebMvcLinkBuilder.methodOn(this.getClass()).retriveAllUsers()).withRel("all-users");
+		  resource.add(link); 
+		  return resource;
+		 
 	}
 	
 	
