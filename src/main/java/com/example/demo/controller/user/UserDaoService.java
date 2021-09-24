@@ -66,6 +66,12 @@ public class UserDaoService {
 		return null;
 	}
 	
+/**
+ * Delete by id.
+ *
+ * @param id the id
+ * @return the user
+ */
 public User deleteById(int id) {
 	Iterator<User>	it=users.iterator();
 		while(it.hasNext()) {
