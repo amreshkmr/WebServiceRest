@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 public class RestController {
 	
 	@Autowired
-	private MessageSource messageSource;
+	private MessageSource messageSource ;
 
 	/**
 	 * Hello world.
